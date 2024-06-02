@@ -62,3 +62,17 @@ jobs:
           bin/rails db:migrate RAILS_ENV=test
       - name: Run RSpec tests
         run: bundle exec rspec
+
+  eslint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install modules
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
