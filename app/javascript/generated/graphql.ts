@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,11 +11,11 @@ export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' |
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
 };
 
 export type Mutation = {
@@ -29,17 +30,15 @@ export type Query = {
   testField: Scalars['String']['output'];
 };
 
-export type FetchTestFieldQueryVariables = Exact<{ [key: string]: never; }>;
+export type FetchTestFieldQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type FetchTestFieldQuery = { __typename?: 'Query', testField: string };
-
+export type FetchTestFieldQuery = { __typename?: 'Query'; testField: string };
 
 export const FetchTestFieldDocument = gql`
-    query FetchTestField {
-  testField
-}
-    `;
+  query FetchTestField {
+    testField
+  }
+`;
 
 /**
  * __useFetchTestFieldQuery__
@@ -56,18 +55,24 @@ export const FetchTestFieldDocument = gql`
  *   },
  * });
  */
-export function useFetchTestFieldQuery(baseOptions?: Apollo.QueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
-      }
-export function useFetchTestFieldLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
-        }
-export function useFetchTestFieldSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
-        }
+export function useFetchTestFieldQuery(
+  baseOptions?: Apollo.QueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
+}
+export function useFetchTestFieldLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
+}
+export function useFetchTestFieldSuspenseQuery(
+  baseOptions?: Apollo.SuspenseQueryHookOptions<FetchTestFieldQuery, FetchTestFieldQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<FetchTestFieldQuery, FetchTestFieldQueryVariables>(FetchTestFieldDocument, options);
+}
 export type FetchTestFieldQueryHookResult = ReturnType<typeof useFetchTestFieldQuery>;
 export type FetchTestFieldLazyQueryHookResult = ReturnType<typeof useFetchTestFieldLazyQuery>;
 export type FetchTestFieldSuspenseQueryHookResult = ReturnType<typeof useFetchTestFieldSuspenseQuery>;

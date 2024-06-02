@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const getAuthenticityToken = () => {
   const token = document.querySelector('meta[name="csrf-token"]');
@@ -9,8 +9,8 @@ const getAuthenticityToken = () => {
   return '';
 };
 
-const initApolloClient = () => {
-  return new ApolloClient({
+const initApolloClient = () =>
+  new ApolloClient({
     uri: '/graphql',
     cache: new InMemoryCache(),
     headers: {
@@ -19,6 +19,5 @@ const initApolloClient = () => {
     },
     connectToDevTools: process.env.NODE_ENV === 'development',
   });
-};
 
 export const client = initApolloClient();
