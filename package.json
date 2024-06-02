@@ -1,0 +1,8 @@
+{
+  "name": "app",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --config webpack.config.js --progress --color --watch",
+    "build": "webpack --config webpack.config.js --progress --color"
+  }
+}
