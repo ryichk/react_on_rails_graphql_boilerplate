@@ -1,11 +1,8 @@
+import { ApolloProvider } from '@apollo/client';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-
-function App() {
-  return (
-    <h1>Hello React!</h1>
-  )
-}
+import { client } from './apollo/setup';
+import { App } from './react/App';
 
 const root = document.getElementById('root');
 if (!root) {
@@ -13,6 +10,8 @@ if (!root) {
 }
 createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
