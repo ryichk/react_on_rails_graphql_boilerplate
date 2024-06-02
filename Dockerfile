@@ -2,7 +2,7 @@ FROM ruby:3.3.1
 
 RUN apt-get update -qq \
     && apt-get install -y \
-      build-essential nodejs
+      build-essential nodejs npm tmux
 
 WORKDIR /app
 
