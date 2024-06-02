@@ -6,6 +6,8 @@
     "watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch"
   },
   "dependencies": {
-    "esbuild": "^0.21.4"
+    "esbuild": "^0.21.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
