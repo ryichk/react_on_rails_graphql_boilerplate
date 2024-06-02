@@ -1,24 +1,52 @@
-# README
+# react_on_rails_graphql_boilerplate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Versions
 
-Things you may want to cover:
+- Ruby
+  - 3.3.1
+- Ruby on Rails
+  - 7.1.3
+- MySQL
+  - 8.0
+- Node.js
+  - 18+
+- TypeScript
+  - 5
+- React
+  - 18
 
-* Ruby version
+## Start Server
 
-* System dependencies
+```sh
+docker-compose up
+```
 
-* Configuration
+## Create Database
 
-* Database creation
+```sh
+docker-compose exec app rails db:create
+```
 
-* Database initialization
+## Run RuboCop in an autocorrect mode
 
-* How to run the test suite
+```sh
+docker-compose exec app rubocop -a
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Run RSpec
 
-* Deployment instructions
+```sh
+docker-compose exec app rspec
+```
 
-* ...
+## Run ESLint and Prettier
+
+```sh
+docker-compose exec app npm run fix
+```
+
+## Run GraphQL-Codegen
+
+```sh
+docker-compose exec app npm run graphql:codegen
+```
